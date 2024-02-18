@@ -5,6 +5,8 @@ const seatIds = seatNumbers.match(/[A-Z]\d+/g);
 
 let clickCount = 0;
 
+const ticketPrice = 550;
+
 document.addEventListener('click', handleSeatSelection);
 
 function handleSeatSelection(event) {
@@ -24,6 +26,24 @@ function handleSeatSelection(event) {
     }
 }
 
+function selectSeat(seatElement, seatId) {
+    seatElement.classList.remove('bg-light-gray');
+    seatElement.classList.add('bg-green');
+
+    const seatDetails = document.createElement('div');
+    seatDetails.innerHTML = `<h3 class="flex text-base font-medium justify-between">
+                                <span>${seatId}</span>
+                                <span>Economy</span>
+                                <span>${ticketPrice}</span>
+                            </h3>`;
+    document.getElementById('ticketdetails').appendChild(seatDetails);
+
+    clickCount++;
+
+    // Dispatch custom event indicating seat selection
+    document.dispatchEvent(new Event('seatSelected'));
+}
+
 function deselectSeat(seatElement) {
     seatElement.classList.remove('bg-green');
     seatElement.classList.add('bg-light-gray');
@@ -33,33 +53,13 @@ function deselectSeat(seatElement) {
     seatDetailsToRemove.parentNode.removeChild(seatDetailsToRemove);
 
     clickCount--;
-}
 
-function selectSeat(seatElement, seatId) {
-    seatElement.classList.remove('bg-light-gray');
-    seatElement.classList.add('bg-green');
-
-    const seatDetails = document.createElement('div');
-    seatDetails.innerHTML = `<h3 class="flex text-base font-medium justify-between">
-                                <span>${seatId}</span>
-                                <span>Economy</span>
-                                <span>550</span>
-                            </h3>`;
-    document.getElementById('ticketdetails').appendChild(seatDetails);
-
-    clickCount++;
+    // Dispatch custom event indicating seat deselection
+    document.dispatchEvent(new Event('seatDeselected'));
 }
 
 function handleInvalidSeatSelection() {
     if (clickCount >= seatLimit) {
         document.getElementById('warning').classList.remove('hidden');
     }
-    console.log("Invalid seat clicked");
 }
-
-
-
-
-
-
-
