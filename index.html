@@ -87,8 +87,9 @@
                         travel.Easy booking, prioritizing well-being. Book now for a safe journey
                     </p>
 
-                    <button class="btn lg:mt-9 border-0 text-black lg:text-xl font-bold bg-green">Buy
-                        Tickets</button>
+                    <button class="btn lg:mt-9 border-0 text-black lg:text-xl font-bold bg-green"><a
+                            href="#ticket-section">Buy
+                            Tickets</a></button>
 
                     <div class="">
                         <div class="flex flex-col md:flex-row gap-5 lg:flex-row mt-24 justify-evenly ">
@@ -218,7 +219,7 @@
             </div>
 
             <!-- Ticket container -->
-            <div class="grid grid-cols-12 w-10/12 mx-auto bg-white mt-6 p-8 rounded-3xl">
+            <div id="ticket-section" class="grid grid-cols-12 w-10/12 mx-auto bg-white mt-6 p-8 rounded-3xl">
                 <div class="col-span-7 pr-8 border-r-2 border-dashed border-black border-opacity-20">
                     <div class="">
                         <h3 class=" text-2xl font-semibold">Select Your Seat</h3>
@@ -232,123 +233,127 @@
                         </h3>
                         <h3></h3>
                     </div>
-                    <div class="flex justify-between mt-10">
-                        <div class="flex flex-col gap-4 my-1">
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0"></kbd>
-                                <kbd id="A1" class="w-28 h-14"></kbd>
-                                <kbd id="A2" class="w-28 h-14"></kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">A</kbd>
-                                <kbd id="A1" class="w-28 h-14 btn bg-light-gray text-opacity-60">A1</kbd>
-                                <kbd id="A2" class="w-28 h-14 btn bg-light-gray text-opacity-60">A2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">B</kbd>
-                                <kbd id="B1" class="w-28 h-14 btn bg-light-gray text-opacity-60">B1</kbd>
-                                <kbd id="B2" class="w-28 h-14 btn bg-light-gray text-opacity-60">B2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">C</kbd>
-                                <kbd id="C1" class="w-28 h-14 btn bg-light-gray text-opacity-60">C1</kbd>
-                                <kbd id="C2" class="w-28 h-14 btn bg-light-gray text-opacity-60">C2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">D</kbd>
-                                <kbd id="D1" class="w-28 h-14 btn bg-light-gray text-opacity-60">D1</kbd>
-                                <kbd id="D2" class="w-28 h-14 btn bg-light-gray text-opacity-60">D2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">E</kbd>
-                                <kbd id="E1" class="w-28 h-14 btn bg-light-gray text-opacity-60">E1</kbd>
-                                <kbd id="E2" class="w-28 h-14 btn bg-light-gray text-opacity-60">E2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">F</kbd>
-                                <kbd id="F1" class="w-28 h-14 btn bg-light-gray text-opacity-60">F1</kbd>
-                                <kbd id="F2" class="w-28 h-14 btn bg-light-gray text-opacity-60">F2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">G</kbd>
-                                <kbd id="G1" class="w-28 h-14 btn bg-light-gray text-opacity-60">G1</kbd>
-                                <kbd id="G2" class="w-28 h-14 btn bg-light-gray text-opacity-60">G2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">H</kbd>
-                                <kbd id="H1" class="w-28 h-14 btn bg-light-gray text-opacity-60">H1</kbd>
-                                <kbd id="H2" class="w-28 h-14 btn bg-light-gray text-opacity-60">H2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">I</kbd>
-                                <kbd id="I1" class="w-28 h-14 btn bg-light-gray text-opacity-60">I1</kbd>
-                                <kbd id="I2" class="w-28 h-14 btn bg-light-gray text-opacity-60">I2</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd class="kbd bg-white border-0 justify-start opacity-70">J</kbd>
-                                <kbd id="J1" class="w-28 h-14 btn bg-light-gray text-opacity-60">J1</kbd>
-                                <kbd id="J2" class="w-28 h-14 btn bg-light-gray text-opacity-60">J2</kbd>
+                    <div>
+                        <h3 id="warning" class="text-center text-red-600 hidden">You can only select 4 seats at a time*</h3>
+                        <div  id="seat-container" class="flex justify-between mt-10">
+                            <div class="flex flex-col gap-4 my-1">
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0"></kbd>
+                                    <kbd id="A1" class="w-28 h-14"></kbd>
+                                    <kbd id="A2" class="w-28 h-14"></kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">A</kbd>
+                                    <kbd id="A1" class="w-28 h-14 btn bg-light-gray text-opacity-60">A1</kbd>
+                                    <kbd id="A2" class="w-28 h-14 btn bg-light-gray text-opacity-60">A2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">B</kbd>
+                                    <kbd id="B1" class="w-28 h-14 btn bg-light-gray text-opacity-60">B1</kbd>
+                                    <kbd id="B2" class="w-28 h-14 btn bg-light-gray text-opacity-60">B2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">C</kbd>
+                                    <kbd id="C1" class="w-28 h-14 btn bg-light-gray text-opacity-60">C1</kbd>
+                                    <kbd id="C2" class="w-28 h-14 btn bg-light-gray text-opacity-60">C2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">D</kbd>
+                                    <kbd id="D1" class="w-28 h-14 btn bg-light-gray text-opacity-60">D1</kbd>
+                                    <kbd id="D2" class="w-28 h-14 btn bg-light-gray text-opacity-60">D2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">E</kbd>
+                                    <kbd id="E1" class="w-28 h-14 btn bg-light-gray text-opacity-60">E1</kbd>
+                                    <kbd id="E2" class="w-28 h-14 btn bg-light-gray text-opacity-60">E2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">F</kbd>
+                                    <kbd id="F1" class="w-28 h-14 btn bg-light-gray text-opacity-60">F1</kbd>
+                                    <kbd id="F2" class="w-28 h-14 btn bg-light-gray text-opacity-60">F2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">G</kbd>
+                                    <kbd id="G1" class="w-28 h-14 btn bg-light-gray text-opacity-60">G1</kbd>
+                                    <kbd id="G2" class="w-28 h-14 btn bg-light-gray text-opacity-60">G2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">H</kbd>
+                                    <kbd id="H1" class="w-28 h-14 btn bg-light-gray text-opacity-60">H1</kbd>
+                                    <kbd id="H2" class="w-28 h-14 btn bg-light-gray text-opacity-60">H2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">I</kbd>
+                                    <kbd id="I1" class="w-28 h-14 btn bg-light-gray text-opacity-60">I1</kbd>
+                                    <kbd id="I2" class="w-28 h-14 btn bg-light-gray text-opacity-60">I2</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd class="kbd bg-white border-0 justify-start opacity-70">J</kbd>
+                                    <kbd id="J1" class="w-28 h-14 btn bg-light-gray text-opacity-60">J1</kbd>
+                                    <kbd id="J2" class="w-28 h-14 btn bg-light-gray text-opacity-60">J2</kbd>
+                                </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="flex flex-col gap-4 my-1">
-                            <div class="flex gap-4">
-                                <kbd id="" class="w-28 h-14"></kbd>
-                                <kbd id="" class="w-28 h-14 btn bg-black bg-opacity-25">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g id="tabler-icon-steering-wheel">
-                                            <path id="Vector"
-                                                d="M16 28C14.4241 28 12.8637 27.6896 11.4078 27.0866C9.95189 26.4835 8.62902 25.5996 7.51472 24.4853C6.40042 23.371 5.5165 22.0481 4.91345 20.5922C4.31039 19.1363 4 17.5759 4 16C4 14.4241 4.31039 12.8637 4.91345 11.4078C5.5165 9.95189 6.40042 8.62902 7.51472 7.51472C8.62902 6.40042 9.95189 5.5165 11.4078 4.91345C12.8637 4.31039 14.4241 4 16 4C17.5759 4 19.1363 4.31039 20.5922 4.91345C22.0481 5.5165 23.371 6.40042 24.4853 7.51472C25.5996 8.62902 26.4835 9.95189 27.0866 11.4078C27.6896 12.8637 28 14.4241 28 16C28 17.5759 27.6896 19.1363 27.0866 20.5922C26.4835 22.0481 25.5996 23.371 24.4853 24.4853C23.371 25.5996 22.0481 26.4835 20.5922 27.0866C19.1363 27.6896 17.5759 28 16 28ZM16 28V18.6667M13.3333 16C13.3333 16.7072 13.6143 17.3855 14.1144 17.8856C14.6145 18.3857 15.2928 18.6667 16 18.6667M13.3333 16C13.3333 15.2928 13.6143 14.6145 14.1144 14.1144C14.6145 13.6143 15.2928 13.3333 16 13.3333C16.7072 13.3333 17.3855 13.6143 17.8856 14.1144C18.3857 14.6145 18.6667 15.2928 18.6667 16M13.3333 16L4.33333 13.3333M16 18.6667C16.7072 18.6667 17.3855 18.3857 17.8856 17.8856C18.3857 17.3855 18.6667 16.7072 18.6667 16M18.6667 16L27.6667 13.3333"
-                                                stroke="#030712" stroke-opacity="0.7" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </g>
-                                    </svg>
-                                </kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="A3" class="w-28 h-14 btn bg-light-gray text-opacity-60">A3</kbd>
-                                <kbd id="A4" class="w-28 h-14 btn bg-light-gray text-opacity-60">A4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="B3" class="w-28 h-14 btn bg-light-gray text-opacity-60">B3</kbd>
-                                <kbd id="B4" class="w-28 h-14 btn bg-light-gray text-opacity-60">B4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="C3" class="w-28 h-14 btn bg-light-gray text-opacity-60">C3</kbd>
-                                <kbd id="C4" class="w-28 h-14 btn bg-light-gray text-opacity-60">C4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="D3" class="w-28 h-14 btn bg-light-gray text-opacity-60">D3</kbd>
-                                <kbd id="D4" class="w-28 h-14 btn bg-light-gray text-opacity-60">D4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="E3" class="w-28 h-14 btn bg-light-gray text-opacity-60">E3</kbd>
-                                <kbd id="E4" class="w-28 h-14 btn bg-light-gray text-opacity-60">E4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="F3" class="w-28 h-14 btn bg-light-gray text-opacity-60">F3</kbd>
-                                <kbd id="F4" class="w-28 h-14 btn bg-light-gray text-opacity-60">F4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="G3" class="w-28 h-14 btn bg-light-gray text-opacity-60">G3</kbd>
-                                <kbd id="G4" class="w-28 h-14 btn bg-light-gray text-opacity-60">G4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="H3" class="w-28 h-14 btn bg-light-gray text-opacity-60">H3</kbd>
-                                <kbd id="H4" class="w-28 h-14 btn bg-light-gray text-opacity-60">H4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="I3" class="w-28 h-14 btn bg-light-gray text-opacity-60">I3</kbd>
-                                <kbd id="I4" class="w-28 h-14 btn bg-light-gray text-opacity-60">I4</kbd>
-                            </div>
-                            <div class="flex gap-4">
-                                <kbd id="J3" class="w-28 h-14 btn bg-light-gray text-opacity-60">J3</kbd>
-                                <kbd id="J4" class="w-28 h-14 btn bg-light-gray text-opacity-60">J4</kbd>
+                            <div class="flex flex-col gap-4 my-1">
+                                <div class="flex gap-4">
+                                    <kbd id="" class="w-28 h-14"></kbd>
+                                    <kbd id="" class="w-28 h-14 btn bg-black bg-opacity-25">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g id="tabler-icon-steering-wheel">
+                                                <path id="Vector"
+                                                    d="M16 28C14.4241 28 12.8637 27.6896 11.4078 27.0866C9.95189 26.4835 8.62902 25.5996 7.51472 24.4853C6.40042 23.371 5.5165 22.0481 4.91345 20.5922C4.31039 19.1363 4 17.5759 4 16C4 14.4241 4.31039 12.8637 4.91345 11.4078C5.5165 9.95189 6.40042 8.62902 7.51472 7.51472C8.62902 6.40042 9.95189 5.5165 11.4078 4.91345C12.8637 4.31039 14.4241 4 16 4C17.5759 4 19.1363 4.31039 20.5922 4.91345C22.0481 5.5165 23.371 6.40042 24.4853 7.51472C25.5996 8.62902 26.4835 9.95189 27.0866 11.4078C27.6896 12.8637 28 14.4241 28 16C28 17.5759 27.6896 19.1363 27.0866 20.5922C26.4835 22.0481 25.5996 23.371 24.4853 24.4853C23.371 25.5996 22.0481 26.4835 20.5922 27.0866C19.1363 27.6896 17.5759 28 16 28ZM16 28V18.6667M13.3333 16C13.3333 16.7072 13.6143 17.3855 14.1144 17.8856C14.6145 18.3857 15.2928 18.6667 16 18.6667M13.3333 16C13.3333 15.2928 13.6143 14.6145 14.1144 14.1144C14.6145 13.6143 15.2928 13.3333 16 13.3333C16.7072 13.3333 17.3855 13.6143 17.8856 14.1144C18.3857 14.6145 18.6667 15.2928 18.6667 16M13.3333 16L4.33333 13.3333M16 18.6667C16.7072 18.6667 17.3855 18.3857 17.8856 17.8856C18.3857 17.3855 18.6667 16.7072 18.6667 16M18.6667 16L27.6667 13.3333"
+                                                    stroke="#030712" stroke-opacity="0.7" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="A3" class="w-28 h-14 btn bg-light-gray text-opacity-60">A3</kbd>
+                                    <kbd id="A4" class="w-28 h-14 btn bg-light-gray text-opacity-60">A4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="B3" class="w-28 h-14 btn bg-light-gray text-opacity-60">B3</kbd>
+                                    <kbd id="B4" class="w-28 h-14 btn bg-light-gray text-opacity-60">B4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="C3" class="w-28 h-14 btn bg-light-gray text-opacity-60">C3</kbd>
+                                    <kbd id="C4" class="w-28 h-14 btn bg-light-gray text-opacity-60">C4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="D3" class="w-28 h-14 btn bg-light-gray text-opacity-60">D3</kbd>
+                                    <kbd id="D4" class="w-28 h-14 btn bg-light-gray text-opacity-60">D4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="E3" class="w-28 h-14 btn bg-light-gray text-opacity-60">E3</kbd>
+                                    <kbd id="E4" class="w-28 h-14 btn bg-light-gray text-opacity-60">E4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="F3" class="w-28 h-14 btn bg-light-gray text-opacity-60">F3</kbd>
+                                    <kbd id="F4" class="w-28 h-14 btn bg-light-gray text-opacity-60">F4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="G3" class="w-28 h-14 btn bg-light-gray text-opacity-60">G3</kbd>
+                                    <kbd id="G4" class="w-28 h-14 btn bg-light-gray text-opacity-60">G4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="H3" class="w-28 h-14 btn bg-light-gray text-opacity-60">H3</kbd>
+                                    <kbd id="H4" class="w-28 h-14 btn bg-light-gray text-opacity-60">H4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="I3" class="w-28 h-14 btn bg-light-gray text-opacity-60">I3</kbd>
+                                    <kbd id="I4" class="w-28 h-14 btn bg-light-gray text-opacity-60">I4</kbd>
+                                </div>
+                                <div class="flex gap-4">
+                                    <kbd id="J3" class="w-28 h-14 btn bg-light-gray text-opacity-60">J3</kbd>
+                                    <kbd id="J4" class="w-28 h-14 btn bg-light-gray text-opacity-60">J4</kbd>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-span-5 pl-8 ">
                     <div class="p-8 rounded-xl bg-light-gray">
@@ -360,19 +365,19 @@
                             </h3>
                         </div>
                         <div class="mt-4 opacity-55 py-4 border-y-2 border-[#03071233] border-dashed">
-                            <div>
-                                <h3 class="flex text-base font-medium justify-between">
+                            <div id="ticketdetails" class="">
+                                <!-- <h3 class="flex text-base font-medium justify-between">
                                     <span>C2</span>
                                     <span>Economoy</span>
                                     <span>550</span>
-                                </h3>
+                                </h3> -->
                             </div>
                             <div>
-                                <h3 class="flex text-base font-medium justify-between">
+                                <!-- <h3 class="flex text-base font-medium justify-between">
                                     <span>C2</span>
                                     <span>Economoy</span>
                                     <span>550</span>
-                                </h3>
+                                </h3> -->
                             </div>
                         </div>
 
@@ -440,8 +445,7 @@
                 <div class="hero mt-2">
                     <a href="">
                         <div class="hero-content flex-col border-2 p-2 text-left rounded-2xl lg:flex-row">
-                            <img src="images/playstore.png"
-                                class="rounded-lg" />
+                            <img src="images/playstore.png" class="rounded-lg" />
                             <div>
                                 <h1 class="text-xs">GET IT ON</h1>
                                 <p class="">Google Play</p>
@@ -467,8 +471,8 @@
         </div>
     </footer>
 
-
-    <script src="scripts/"></script>
+    <script src="scripts/utility.js"></script>
+    <script src="scripts/p-ticket.js"></script>
 </body>
 
 </html>
