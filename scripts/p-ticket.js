@@ -6,7 +6,7 @@ for (let i = 0; i < seatNumbers.length; i += 2) {
     const row = seatNumbers[i];
     const seatNumber = seatNumbers.slice(i + 1, i + 2);
     const seatId = row + seatNumber;
-    
+
     seatIds.push(seatId);
 }
 
@@ -28,11 +28,11 @@ function handleSeatSelection(event) {
     if (seatIds.includes(clickedSeatId)) {
         if (isSeatSelected && clickCount > 0) {
             deselectSeat(clickedSeatElement);
-        } 
+        }
         else if (!isSeatSelected && clickCount < seatLimit) {
             selectSeat(clickedSeatElement, clickedSeatId);
         }
-    } 
+    }
     else {
         handleInvalidSeatSelection();
     }
@@ -48,6 +48,10 @@ function selectSeat(seatElement, seatId) {
     document.getElementById('ticketdetails').appendChild(seatDetails);
     clickCount++;
     document.dispatchEvent(new Event('seatSelected'));
+
+    document.getElementById('ticketcount').textContent = clickCount;
+
+    document.dispatchEvent(new Event('seatSelected'));
 }
 
 function deselectSeat(seatElement) {
@@ -61,6 +65,10 @@ function deselectSeat(seatElement) {
     clickCount--;
 
     document.dispatchEvent(new Event('seatDeselected'));
+
+    document.getElementById('ticketcount').textContent = clickCount;
+
+    document.dispatchEvent(new Event('seatDeselected'));
 }
 
 function handleInvalidSeatSelection() {
@@ -68,3 +76,79 @@ function handleInvalidSeatSelection() {
         document.getElementById('warning').classList.remove('hidden');
     }
 }
+
+// calculate total price of the ticket
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selectedSeats = [];
+    const totalAmountElement = document.getElementById('totalamount');
+    const applyCouponBtn = document.getElementById('applyCouponBtn');
+
+    document.addEventListener('seatSelected', updateTotalAmount);
+    document.addEventListener('seatDeselected', updateTotalAmount);
+
+    function updateTotalAmount() {
+        const selectedSeats = document.querySelectorAll('#ticketdetails h3 span:first-child');
+        const totalAmountElement = document.getElementById('totalamount');
+
+        // Calculate total amount
+        const totalAmount = Array.from(selectedSeats).reduce((total, seat) => {
+            const seatDetails = seat.parentNode.parentNode; 
+            const seatPrice = seatDetails.querySelector('span:last-child').textContent;
+            return total + parseInt(seatPrice);
+        }, 0);
+
+        totalAmountElement.textContent = totalAmount;
+
+        if (selectedSeats.length === 4) {
+            applyCouponBtn.removeAttribute('disabled');
+        }
+        else {
+            applyCouponBtn.setAttribute('disabled', true);
+        }
+    }
+});
+
+// Apply coupon and calculate grand total
+
+document.getElementById("applyCouponBtn").addEventListener("click", applyCoupon);
+
+function applyCoupon() {
+
+    const couponCode = document.getElementById("applyCoupon").value;
+    const totalAmount = parseFloat(document.getElementById("totalamount").innerText);
+
+    let isValidCoupon = false;
+
+    // check coupon
+    for (let i = 0; i < 2; i++) {
+        const couponCodes = ["NEW15", "Couple 20"];
+        const discountPercentages = [15, 20];
+
+        if (couponCode === couponCodes[i]) {
+            applyDiscount(discountPercentages[i], totalAmount);
+            const discountAmount = (discountPercentages[i] / 100) * totalAmount;
+            const discountedTotal = totalAmount - discountAmount;
+            document.getElementById("grandtotal").innerText = discountedTotal.toFixed(2);
+
+            isValidCoupon = true;
+            break;
+        }
+    }
+
+    // if coupon is not matched
+    if (!isValidCoupon) {
+        alert("Invalid coupon code. Please try again.");
+    }
+}
+
+// apply the coupon price in grand total
+
+function applyDiscount(discountPercentage, totalAmount) {
+
+    const discountAmount = (discountPercentage / 100) * totalAmount;
+    const discountedTotal = totalAmount - discountAmount;
+
+    document.getElementById("grandtotal").innerText = discountedTotal.toFixed(2);
+}
+
