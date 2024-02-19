@@ -21,6 +21,40 @@ function updateTotalAmount() {
 
 };
 
-// apply coupon
+// coupon part
+
+document.getElementById("applyCouponBtn").addEventListener("click", applyCoupon);
+
+function applyCoupon() {
+    const couponCode = document.getElementById("applyCoupon").value;
+    const totalAmount = parseFloat(document.getElementById("totalamount").innerText);
+
+    let isValidCoupon = false;
+
+    for (let i = 0; i < 2; i++) {
+        const couponCodes = ["NEW15", "Couple 20"];
+        const discountPercentages = [15, 20];
+
+        if (couponCode === couponCodes[i]) {
+            applyDiscount(discountPercentages[i], totalAmount);
+            isValidCoupon = true;
+            break;
+        }
+    }
+
+    if (!isValidCoupon) {
+        alert("Invalid coupon code. Please try again.");
+    }
+}
+
+function applyDiscount(discountPercentage, totalAmount) {
+
+    const discountAmount = (discountPercentage / 100) * totalAmount;
+    const discountedTotal = totalAmount - discountAmount;
+
+    document.getElementById("grandtotal").innerText = discountedTotal.toFixed(2);
+}
+
+
 
 

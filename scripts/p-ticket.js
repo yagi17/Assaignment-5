@@ -40,7 +40,6 @@ function selectSeat(seatElement, seatId) {
 
     clickCount++;
 
-    // Dispatch custom event indicating seat selection
     document.dispatchEvent(new Event('seatSelected'));
 }
 
@@ -54,7 +53,6 @@ function deselectSeat(seatElement) {
 
     clickCount--;
 
-    // Dispatch custom event indicating seat deselection
     document.dispatchEvent(new Event('seatDeselected'));
 }
 
