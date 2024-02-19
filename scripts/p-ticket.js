@@ -1,7 +1,17 @@
 const seatLimit = 4;
-const seatNumbers = "A1A2A2A3A4B1B2B3B4C1C2C3C4D1D2D3D4E1E2E3E4F1F2F3F4G1G2G3G4H1H2H3H4I1I2I3I4J1J2J3J4";
+const seatNumbers = "A1A2A3A4B1B2B3B4C1C2C3C4D1D2D3D4E1E2E3E4F1F2F3F4G1G2G3G4H1H2H3H4I1I2I3I4J1J2J3J4";
+const seatIds = [];
 
-const seatIds = seatNumbers.match(/[A-Z]\d+/g);
+for (let i = 0; i < seatNumbers.length; i += 2) {
+    const row = seatNumbers[i];
+    const seatNumber = seatNumbers.slice(i + 1, i + 2);
+    const seatId = row + seatNumber;
+    
+    seatIds.push(seatId);
+}
+
+console.log(seatIds);
+
 
 let clickCount = 0;
 
@@ -18,10 +28,12 @@ function handleSeatSelection(event) {
     if (seatIds.includes(clickedSeatId)) {
         if (isSeatSelected && clickCount > 0) {
             deselectSeat(clickedSeatElement);
-        } else if (!isSeatSelected && clickCount < seatLimit) {
+        } 
+        else if (!isSeatSelected && clickCount < seatLimit) {
             selectSeat(clickedSeatElement, clickedSeatId);
         }
-    } else {
+    } 
+    else {
         handleInvalidSeatSelection();
     }
 }
@@ -31,15 +43,10 @@ function selectSeat(seatElement, seatId) {
     seatElement.classList.add('bg-green');
 
     const seatDetails = document.createElement('div');
-    seatDetails.innerHTML = `<h3 class="flex text-base font-medium justify-between">
-                                <span>${seatId}</span>
-                                <span>Economy</span>
-                                <span>${ticketPrice}</span>
-                            </h3>`;
+    seatDetails.innerHTML = `<h3 class="flex text-base font-medium justify-between"><span>${seatId}</span><span>Economy</span><span>${ticketPrice}</span></h3>`;
+
     document.getElementById('ticketdetails').appendChild(seatDetails);
-
     clickCount++;
-
     document.dispatchEvent(new Event('seatSelected'));
 }
 

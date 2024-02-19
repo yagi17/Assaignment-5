@@ -31,7 +31,7 @@ textarea:focus {
 }
 
 .banner-image {
-    background-image: linear-gradient(180.00deg, rgba(3, 7, 18, 0.5), rgba(3, 7, 18, 0) 100%), url('/images/banner.png');
+    background-image: linear-gradient(180.00deg, rgba(3, 7, 18, 0.5), rgba(3, 7, 18, 0) 100%), url('../images/banner.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
